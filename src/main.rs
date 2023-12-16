@@ -25,7 +25,7 @@ fn main() {
     // they want to play again, false if they are done.
     let mut play_again_choice: bool = play_again();
     // Now we are going to loop through the game until the user doesn't want to play anymore
-    while play_again_choice == true {
+    while play_again() {
         // Now we repeat the above but in our loop!
         let ans: i32 = generate_answer();
         let win: bool = game_time(ans);
@@ -34,9 +34,6 @@ fn main() {
         } else {
             user_losses += 1;
         }
-        // Now we are going to ask the user whether they want to play again or not, returning true if
-        // they want to play again, false if they are done.
-        play_again_choice = play_again();
     }
     // We hit this once the user is done playing
     println!("You won {} times and lost {} times!", user_wins, user_losses);
